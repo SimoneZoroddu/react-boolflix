@@ -6,18 +6,25 @@ export default function Main() {
 
     const envFileAPI = import.meta.env.VITE_API_MOVIES
 
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${envFileAPI}`
+    const urlMovies = `https://api.themoviedb.org/3/search/movie?api_key=${envFileAPI}`
+    const urlSerieTV = `https://api.themoviedb.org/3/search/tv?api_key=${envFileAPI}&query=scrubs`
 
     const [valueSearced, setValueSearced] = useState('')
-    const [filmsSearched, setFilmsSearched] = useState([])
-
+    const [filmsSearced, setFilmsSearced] = useState([])
+    const [serieTVSearced, setSerieTVSearced] = useState([])
 
     function searchMovies(e) {
         e.preventDefault()
-        axios.get(`${url}&query=${valueSearced}`)
+        axios.get(`${urlMovies}&query=${valueSearced}`)
             .then(response => {
                 //console.log(response.data)
-                setFilmsSearched(response.data.results)
+                setFilmsSearced(response.data.results)
+            }
+            )
+        axios.get(`${urlSerieTV}&query=${valueSearced}`)
+            .then(response => {
+                //console.log(response.data)
+                setSerieTVSearced(response.data.results)
             }
             )
     }
@@ -30,16 +37,26 @@ export default function Main() {
                 <button>Cerca il film</button>
             </form>
             {
-                filmsSearched.map((film) => (
+                filmsSearced.map((film) => (
                     <div key={film.id}>
                         <h1>{film.title}</h1>
                         <h2>{film.original_title}</h2>
-                        <p>{film.original_language}</p>
                         <div>{film.vote_average}</div>
                         <div className={`fi fi-${film.original_language === "en" ? "gb" : film.original_language === "ja" ? "jp" : film.original_language === "zh" ? "kr" : film.original_language}`}></div>
                     </div >
 
-                    ))
+                ))
+            }
+            {
+                serieTVSearced.map((film) => (
+                    <div key={film.id}>
+                        <h1>{film.name}</h1>
+                        <h2>{film.original_name}</h2>
+                        <div>{film.vote_average}</div>
+                        <div className={`fi fi-${film.original_language === "en" ? "gb" : film.original_language === "ja" ? "jp" : film.original_language === "zh" ? "kr" : film.original_language}`}></div>
+                    </div >
+
+                ))
             }
         </>
 
