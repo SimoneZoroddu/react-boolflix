@@ -1,3 +1,29 @@
 @import url('bootstrap');
 @import url('bootstrap-icons');
 @import "/node_modules/flag-icons/css/flag-icons.min.css";
+
+
+#description_films {
+    display: none;
+}
+
+#description_serietv {
+    display: none;
+
+}
+
+#image_filmhover:hover {
+    display: none;
+}
+
+#image_filmhover:hover+#description_films {
+    display: block;
+}
+
+#image_serietvhover:hover {
+    display: none;
+}
+
+#image_serietvhover:hover + #description_serietv {
+    display: block;
+}
