@@ -29,16 +29,18 @@ export default function Main() {
                 <input type="text" value={valueSearced} onChange={(e) => setValueSearced(e.target.value)} />
                 <button>Cerca il film</button>
             </form>
-                {
-                    filmsSearched.map((film) => (
-                        <div key={film.id}>
-                            <h1>{film.title}</h1>
-                            <h2>{film.original_title}</h2>
-                            <p>{film.original_language}</p>
-                            <div>{film.vote_average}</div>
-                        </div>
+            {
+                filmsSearched.map((film) => (
+                    <div key={film.id}>
+                        <h1>{film.title}</h1>
+                        <h2>{film.original_title}</h2>
+                        <p>{film.original_language}</p>
+                        <div>{film.vote_average}</div>
+                        <div className={`fi fi-${film.original_language === "en" ? "gb" : film.original_language === "ja" ? "jp" : film.original_language === "zh" ? "kr" : film.original_language}`}></div>
+                    </div >
+
                     ))
-                }
+            }
         </>
 
     )
