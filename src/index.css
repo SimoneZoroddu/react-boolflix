@@ -3,6 +3,18 @@
 @import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 
+
+ #changeFilm_hover {
+    height: 342px;
+}
+
+#description_film {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+/* hover per far sparire immagine e uscire descrizione */
+
 #description_film {
     display: none;
 }

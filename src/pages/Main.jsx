@@ -11,23 +11,33 @@ export default function Main() {
         return '★'.repeat(voteNumbers) + '☆'.repeat(5 - voteNumbers)
     }
 
+    function changeNameLanguage(language) {
+
+        if (language == 'en') {
+            language = 'gb'
+        } else if (language == 'ja') {
+            language = 'jp'
+        } else if (language == 'zh') {
+            language = 'kr'
+        }
+    }
+
     return (
-        <div className='bg-secondary' style={{ height: '5000px'}}>
-            <div className="container">
+        <div className='bg-secondary' style={{ height: '5000px' }}>
+            <div className="container ">
                 <div className="row row-cols-1 row-cols-md-3 row-cols-lg-5">
                     {
                         filmsSearced.map((film) => (
-                            <div className="col p-3" key={film.id} id='changeFilm_hover'>
-                                <img src={film.poster_path ? `https://image.tmdb.org/t/p/w342/${film.poster_path}` : 'https://placehold.co/342x513/png?text=Poster+Non+Disponibile'} alt={film.original_title} className='img-fluid' id='image_film' />
-                                <div id='description_film'>
-                                    <h3><strong>Titolo</strong>: <br /> {film.title}</h3>
-                                    <h4><strong>Titolo originale</strong>:{film.original_title}</h4>
-                                    <div><strong>Voto</strong>:{starsVote(film.vote_average)}</div>starsVote(film.vote_average)
-                                    <div className={`fi fi-${film.original_language === "en" ? "gb" : film.original_language === "ja" ? "jp" : film.original_language === "zh" ? "kr" : film.original_language}`}></div>
-                                    <div><strong>Overview</strong>:{film.overview}</div>
-                                </div>
+                            <div className="col my-3" key={film.id} id='changeFilm_hover'>
+                                    <img src={film.poster_path ? `https://image.tmdb.org/t/p/w342/${film.poster_path}` : 'https://placehold.co/342x513/png?text=Poster+Non+Disponibile'} alt={film.original_title} className='img-fluid' id='image_film'  style={{width:'239', height:'338'}} />
+                                    <div id='description_film'>
+                                        <h3><strong>Titolo</strong>: <br /> {film.title}</h3>
+                                        <h4><strong>Titolo originale</strong>:{film.original_title}</h4>
+                                        <div><strong>Voto</strong>:{starsVote(film.vote_average)}</div>starsVote(film.vote_average)
+                                        <div className={`fi fi-${film.original_language === "en" ? "gb" : film.original_language === "ja" ? "jp" : film.original_language === "zh" ? "kr" : film.original_language}`}></div>
+                                        <div><strong>Overview</strong>:{film.overview}</div>
+                                    </div>
                             </div>
-
                         )
                         )
                     }
