@@ -3,7 +3,7 @@
 @import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 
-#description_films {
+#description_film {
     display: none;
 }
 
@@ -12,18 +12,24 @@
 
 }
 
-#image_filmhover:hover {
-    display: none;
+#changeFilm_hover:hover {
+
+    #image_film {
+        display: none; 
+    }
+
+    #description_film {
+        display: block;
+    }
 }
 
-#image_filmhover:hover+#description_films {
-    display: block;
-}
+#changeSerietv_hover:hover {
 
-#image_serietvhover:hover {
-    display: none;
-}
+    #image_serietv {
+        display: none; 
+    }
 
-#image_serietvhover:hover + #description_serietv {
-    display: block;
+    #description_serietv {
+        display: block;
+    }
 }

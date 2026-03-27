@@ -7,7 +7,7 @@ function CreateCardContext({ children }) {
     const envFileAPI = import.meta.env.VITE_API_MOVIES
 
     const urlMovies = `https://api.themoviedb.org/3/search/movie?api_key=${envFileAPI}`
-    const urlSerieTV = `https://api.themoviedb.org/3/search/tv?api_key=${envFileAPI}&query=scrubs`
+    const urlSerieTV = `https://api.themoviedb.org/3/search/tv?api_key=${envFileAPI}`
     
     const [valueSearced, setValueSearced] = useState('')
     const [filmsSearced, setFilmsSearced] = useState([])
