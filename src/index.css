@@ -4,11 +4,11 @@
 
 
 
- #changeFilm_hover {
+ #changeFilm_hover, #changeSerietv_hover {
     height: 342px;
 }
 
-#description_film {
+#description_film, #description_serietv {
     height: 100%;
     overflow-y: scroll;
 }
